@@ -26,7 +26,7 @@ jobs:
 
       - name: Set base path for production build
         run: |
-          echo "NEXT_PUBLIC_BASE_PATH=/$GITHUB_REPOSITORY" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_BASE_PATH=/swedenland.github.io" >> $GITHUB_ENV
 
       - name: Build static site
         run: npm run build

@@ -24,10 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set base path for production build
-        run: |
-          echo "NEXT_PUBLIC_BASE_PATH=/swedenland.github.io" >> $GITHUB_ENV
-
       - name: Build static site
         run: npm run build
 

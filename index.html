@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swedenland - Links</title>
+    <!-- Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para ícones premium -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts para tipografia elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 100%);
+        }
+        /* Efeito de brilho suave de fundo */
+        .glow-bg {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-100 flex flex-col justify-between items-center px-4 py-8 relative overflow-x-hidden">
+    
+    <!-- Brilho decorativo ao fundo -->
+    <div class="glow-bg"></div>
+
+    <!-- Conteúdo Principal -->
+    <main class="w-full max-w-md mx-auto z-10 flex-grow flex flex-col justify-center items-center">
+        
+        <!-- Cartão Principal de Perfil (Glassmorphism) -->
+        <div class="w-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl flex flex-col items-center text-center transition-all duration-300 hover:border-indigo-500/30">
+            
+            <!-- Foto de Perfil com animação de pulso sutil na borda -->
+            <div class="relative group mb-5">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <img 
+                    id="profile-pic"
+                    src="https://github.com/swedenland.png" 
+                    alt="Foto de Perfil do GitHub/Instagram" 
+                    class="relative w-28 h-28 rounded-full border-2 border-white/20 object-cover shadow-xl"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80';"
+                >
+            </div>
+
+            <!-- Informações do Usuário -->
+            <h1 class="text-2xl font-bold tracking-tight text-white mb-1">Swedenland</h1>
+            <p class="text-indigo-300/90 text-sm font-medium mb-8">@swedenland_me</p>
+
+            <!-- Botões de Link / Call to Action -->
+            <div class="w-full space-y-4">
+                
+                <!-- Botão WhatsApp (Chamada Principal) -->
+                <a 
+                    href="https://wa.me/5519982889332?text=Ol%C3%A1!%20Gostaria%20de%20entrar%20em%20contato." 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="flex items-center justify-between w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-emerald-500/20 group"
+                >
+                    <div class="flex items-center gap-3">
+                        <span class="bg-slate-950/10 p-2 rounded-xl flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </span>
+                        <div class="text-left">
+                            <p class="text-xs uppercase tracking-wider font-extrabold opacity-75">Fale Conosco</p>
+                            <p class="text-sm">WhatsApp (19) 98288-9332</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-60 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- Botão Instagram -->
+                <a 
+                    href="https://instagram.com/swedenland_me" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="flex items-center justify-between w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:opacity-95 text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-pink-500/10 group"
+                >
+                    <div class="flex items-center gap-3">
+                        <span class="bg-white/10 p-2 rounded-xl flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </span>
+                        <div class="text-left">
+                            <p class="text-xs uppercase tracking-wider font-bold opacity-80">Siga no Instagram</p>
+                            <p class="text-sm">@swedenland_me</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-60 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+            </div>
+
+            <!-- Botão Secundário para compartilhar o link facilmente -->
+            <button 
+                onclick="copyToClipboard()" 
+                class="mt-8 text-xs text-slate-400 hover:text-white flex items-center gap-2 transition-colors cursor-pointer bg-white/5 py-2 px-4 rounded-full border border-white/5 hover:border-white/10"
+            >
+                <i class="fa-regular fa-share-from-square"></i>
+                <span>Compartilhar página</span>
+            </button>
+            
+            <!-- Toast de feedback para a cópia do link -->
+            <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-indigo-300 text-xs py-2 px-4 rounded-full border border-indigo-500/30 opacity-0 pointer-events-none transition-all duration-300 shadow-xl">
+                Link copiado para a área de transferência!
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer minimalista -->
+    <footer class="w-full text-center text-xs text-slate-500 py-4 z-10">
+        <p>&copy; 2026 Swedenland. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para copiar o link da página para compartilhar de forma resiliente
+        function copyToClipboard() {
+            const urlToCopy = window.location.href;
+            
+            // Fallback usando document.execCommand para ambientes restritos de iframe
+            const tempInput = document.createElement("input");
+            tempInput.value = urlToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                document.execCommand("copy");
+                showToast();
+            } catch (err) {
+                console.error("Falha ao copiar: ", err);
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.classList.remove("opacity-0");
+            toast.classList.add("opacity-100");
+            
+            setTimeout(() => {
+                toast.classList.remove("opacity-100");
+                toast.classList.add("opacity-0");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
